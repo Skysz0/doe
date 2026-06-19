@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Corrente do Bem - Doe Alimentos</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#f4f7fa;
+    color:#333;
+}
+
+header{
+    background:linear-gradient(135deg,#0077cc,#00a8ff);
+    color:white;
+    text-align:center;
+    padding:50px 20px;
+}
+
+header h1{
+    font-size:2.5rem;
+    margin-bottom:10px;
+}
+
+header p{
+    font-size:1.2rem;
+}
+
+.container{
+    max-width:1100px;
+    margin:auto;
+    padding:30px 20px;
+}
+
+.card{
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    margin-bottom:30px;
+}
+
+.info{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:30px;
+}
+
+@media(max-width:768px){
+    .info{
+        grid-template-columns:1fr;
+    }
+}
+
+h2{
+    color:#0077cc;
+    margin-bottom:15px;
+}
+
+ul{
+    margin-left:20px;
+    line-height:1.8;
+}
+
+.pix-area{
+    text-align:center;
+}
+
+.qrcode{
+    width:250px;
+    height:250px;
+    object-fit:contain;
+    border:5px solid #eee;
+    border-radius:15px;
+    margin:20px auto;
+}
+
+.pix-key{
+    background:#f1f1f1;
+    padding:12px;
+    border-radius:8px;
+    font-weight:bold;
+    margin:15px 0;
+    word-break:break-all;
+}
+
+button{
+    background:#00a651;
+    color:white;
+    border:none;
+    padding:12px 25px;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:16px;
+}
+
+button:hover{
+    background:#008b44;
+}
+
+.site-btn{
+    display:inline-block;
+    margin-top:20px;
+    text-decoration:none;
+    background:#0077cc;
+    color:white;
+    padding:12px 25px;
+    border-radius:8px;
+}
+
+.site-btn:hover{
+    background:#005fa3;
+}
+
+.destaque{
+    background:#eaf6ff;
+    border-left:5px solid #0077cc;
+    padding:15px;
+    margin-top:20px;
+    border-radius:8px;
+}
+
+footer{
+    text-align:center;
+    padding:20px;
+    background:#222;
+    color:white;
+}
+</style>
+</head>
+<body>
+
+<header>
+    <h1>✨ Faça Parte da Nossa Corrente do Bem ✨</h1>
+    <p>Sua solidariedade alimenta a esperança de quem mais precisa 💙</p>
+</header>
+
+<div class="container">
+
+    <div class="card">
+        <h2>📍 Ação Social no Bairro Verdão</h2>
+
+        <p><strong>Data:</strong> 20/06</p>
+        <p><strong>Horário:</strong> Das 09h às 13h</p>
+
+        <div class="destaque">
+            A fome não espera! Ajude-nos a levar comida à mesa de famílias em situação de vulnerabilidade social atendidas por nossa instituição.
+        </div>
+    </div>
+
+    <div class="info">
+
+        <div class="card">
+            <h2>🍚 O que estamos arrecadando</h2>
+
+            <ul>
+                <li>Arroz</li>
+                <li>Feijão</li>
+                <li>Macarrão</li>
+                <li>Óleo</li>
+                <li>Açúcar</li>
+                <li>Café</li>
+                <li>Outros alimentos não perecíveis</li>
+                <li>Cestas básicas montadas</li>
+            </ul>
+
+            <div class="destaque">
+                Caso não possa entregar alimentos, você pode contribuir através de uma doação via PIX.
+            </div>
+        </div>
+
+        <div class="card pix-area">
+            <h2>💳 Doe via PIX</h2>
+
+            <!-- Substitua pela imagem do seu QR Code -->
+            <img src="qrcode-pix.png" alt="QR Code PIX" class="qrcode">
+
+            <p>Escaneie o QR Code ou copie a chave PIX abaixo:</p>
+
+            <div class="pix-key" id="pixKey">
+                Assistênciasocial@exemplo.com
+            </div>
+
+            <button onclick="copiarPix()">
+                Copiar Chave PIX
+            </button>
+
+            <br>
+
+            <!-- Substitua pelo site oficial -->
+            <a href="https://www.seusite.com.br"
+               target="_blank"
+               class="site-btn">
+               Conheça Nossa Instituição
+            </a>
+        </div>
+
+    </div>
+
+    <div class="card">
+        <h2>❤️ Como sua doação ajuda</h2>
+
+        <p>
+            Cada contribuição recebida é transformada em alimentos para famílias
+            que enfrentam dificuldades financeiras. Com sua ajuda conseguimos
+            ampliar o alcance de nossas ações sociais e levar dignidade para quem mais precisa.
+        </p>
+
+        <br>
+
+        <p>
+            Transparência, compromisso e solidariedade são os pilares da nossa missão.
+        </p>
+    </div>
+
+</div>
+
+<footer>
+    © 2025 - Corrente do Bem | Juntos podemos transformar vidas.
+</footer>
+
+<script>
+function copiarPix() {
+    const chave = document.getElementById("pixKey").innerText;
+
+    navigator.clipboard.writeText(chave)
+    .then(() => {
+        alert("Chave PIX copiada com sucesso!");
+    })
+    .catch(() => {
+        alert("Não foi possível copiar a chave.");
+    });
+}
+</script>
+
+</body>
+</html>
